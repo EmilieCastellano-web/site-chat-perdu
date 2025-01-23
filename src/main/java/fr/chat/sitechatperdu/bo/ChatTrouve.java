@@ -1,31 +1,43 @@
 package fr.chat.sitechatperdu.bo;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class ChatTrouve extends Chat {
 
     private int age;
     private String gender;
     private String description;
-    private Date dateTrouve;
+    private LocalDate dateTrouve;
+    private long id;
+    private long count = 0;
+    private static long globalCount = 0;
 
-
-    public ChatTrouve(String nom, String couleur, int age, String gender, String description, Date dateTrouve) {
-        super(nom, couleur);
-        this.age = age;
-        this.gender = gender;
-        this.description = description;
-        this.dateTrouve = dateTrouve;
-    }
-
-    public ChatTrouve(String nom, String race, String couleur, int age, String gender, String description, Date dateTrouve) {
+    /**
+     * Constructeur pour instancier un chat trouvé
+     * @param nom
+     * @param race
+     * @param couleur
+     * @param dateTrouve
+     * @param description
+     * @param gender
+     * @param age
+     */
+    public ChatTrouve(String nom, Race race, String couleur, LocalDate dateTrouve, String description, String gender, int age) {
         super(nom, race, couleur);
-        this.age = age;
-        this.gender = gender;
-        this.description = description;
+        this.id = globalCount++;
+        this.count = globalCount;
         this.dateTrouve = dateTrouve;
+        this.description = description;
+        this.gender = gender;
+        this.age = age;
     }
 
+
+    /**
+     * Méthode pour définir l'affichage
+     * @return String
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Chat Trouve : ");
@@ -35,7 +47,7 @@ public class ChatTrouve extends Chat {
         sb.append(", dateTrouve : ").append(dateTrouve);
         return sb.toString();
     }
-
+    //***************************************   GETTERS & SETTERS  ******************************************************
     public int getAge() {
         return age;
     }
@@ -60,11 +72,19 @@ public class ChatTrouve extends Chat {
         this.description = description;
     }
 
-    public Date getDateTrouve() {
+    public LocalDate getDateTrouve() {
         return dateTrouve;
     }
 
-    public void setDateTrouve(Date dateTrouve) {
+    public void setDateTrouve(LocalDate dateTrouve) {
         this.dateTrouve = dateTrouve;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

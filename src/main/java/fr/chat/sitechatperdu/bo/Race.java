@@ -1,0 +1,6 @@
+package fr.chat.sitechatperdu.bo;
+
+public enum Race {
+
+    MAINE_COON, SACRE_DE_BIRMANIE, BENGAL, BRITISH_SHORTHAIR, RADGOLL, PERSAN, CHARTREUX, SIBERIEN, NORVEGIEN, SPHYNX, SANS_RACE
+}

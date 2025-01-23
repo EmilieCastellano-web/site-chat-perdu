@@ -1,30 +1,45 @@
 package fr.chat.sitechatperdu.bo;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class ChatPerdu extends Chat{
 
     private int age;
     private String gender;
     private String description;
-    private Date datePerdu;
+    private LocalDate datePerdu;
+    private long id;
+    private static long globalCount = 0;
+    private long count = 0;
 
-    public ChatPerdu(String nom, String couleur, Date datePerdu, String description, String gender, int age) {
-        super(nom, couleur);
-        this.datePerdu = datePerdu;
-        this.description = description;
-        this.gender = gender;
-        this.age = age;
-    }
 
-    public ChatPerdu(String nom, String race, String couleur, Date datePerdu, String description, String gender, int age) {
+    /**
+     * Constructeur pour instancier un chat perdus
+     * @param nom
+     * @param race
+     * @param couleur
+     * @param age
+     * @param gender
+     * @param description
+     * @param datePerdu
+     */
+    public ChatPerdu(String nom, Race race, String couleur, int age, String gender, String description, LocalDate datePerdu) {
         super(nom, race, couleur);
-        this.datePerdu = datePerdu;
-        this.description = description;
-        this.gender = gender;
+        this.id = globalCount++;
+        this.count = globalCount;
         this.age = age;
+        this.gender = gender;
+        this.description = description;
+        this.datePerdu = datePerdu;
+
+
     }
 
+    /**
+     * Méthode pour définir l'affichage
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Chat Perdu : ");
@@ -34,7 +49,7 @@ public class ChatPerdu extends Chat{
         sb.append(", datePerdu : ").append(datePerdu);
         return sb.toString();
     }
-
+    //********************************  GETTERS & SETTERS   ************************************************
     public int getAge() {
         return age;
     }
@@ -59,11 +74,19 @@ public class ChatPerdu extends Chat{
         this.description = description;
     }
 
-    public Date getDatePerdu() {
+    public LocalDate getDatePerdu() {
         return datePerdu;
     }
 
-    public void setDatePerdu(Date datePerdu) {
+    public void setDatePerdu(LocalDate datePerdu) {
         this.datePerdu = datePerdu;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

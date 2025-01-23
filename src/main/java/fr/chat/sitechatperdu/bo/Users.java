@@ -11,6 +11,14 @@ public class Users {
     ChatPerdu chatPerdu;
     ChatTrouve chatTrouve;
 
+    /**
+     * Constructeur qui permet d'instancier un utilisateur
+     * @param nom
+     * @param prenom
+     * @param email
+     * @param password
+     * @param telephone
+     */
     public Users(String nom, String prenom, String email, String password, String telephone) {
         this.nom = nom;
         this.prenom = prenom;
@@ -19,6 +27,8 @@ public class Users {
         this.telephone = telephone;
     }
 
+
+    //********************************* GETTERS & SETTERS*************************************************
     public String getNom() {
         return nom;
     }

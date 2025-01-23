@@ -1,10 +1,11 @@
 package fr.chat.sitechatperdu.bo;
 
-public class Chat {
+abstract class Chat {
 
     private String nom;
-    private String race;
     private String couleur;
+
+    Race race;
 
 
     public Chat(String nom, String couleur) {
@@ -12,7 +13,7 @@ public class Chat {
         this.couleur = couleur;
     }
 
-    public Chat(String nom, String race, String couleur) {
+    public Chat(String nom, Race race, String couleur) {
        this(nom, couleur);
         this.race = race;
 
@@ -35,12 +36,12 @@ public class Chat {
         this.nom = nom;
     }
 
-    public String getRace() {
+    public Race getRace() {
         return race;
     }
 
     public void setRace(String race) {
-        this.race = race;
+        this.race = getRace();
     }
 
     public String getCouleur() {
