@@ -2,13 +2,13 @@ package fr.chat.sitechatperdu.dao;
 
 public class DAOFactory {
 
-    private static ChatDAO chatDAO = null;
+    private static ChatDAOBouchon chatDAOBouchon = null;
 
-    public static ChatDAO getChatDAO() {
+    public static ChatDAOBouchon getChatDAO() {
 
-        if (chatDAO == null) {
-            chatDAO = new ChatDAO();
+        if (chatDAOBouchon == null) {
+            chatDAOBouchon = new ChatDAOBouchon();
         }
-        return chatDAO;
+        return chatDAOBouchon;
     }
 }

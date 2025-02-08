@@ -7,29 +7,35 @@ import java.util.List;
 
 public interface ChatService {
 
-    public ChatPerdu afficherChatTest();
+    //************************  CHATS PERDUS    *****************************************
 
-    public List<ChatPerdu> afficherChatPerdu();
+     List<ChatPerdu> afficherChatPerdu();
 
-    public List<ChatTrouve> afficherChatTrouve();
+    ChatPerdu afficherChatPById(long id);
 
-    public ServiceResponse<ChatPerdu> addChat(ChatPerdu chat );
+     ServiceResponse<ChatPerdu> addChatP(ChatPerdu chat );
 
-    public ServiceResponse<ChatPerdu> removeChats(ChatPerdu chat );
+     ServiceResponse<ChatPerdu> removeChats(ChatPerdu chat );
 
-    public ServiceResponse<ChatTrouve> addChat(ChatTrouve chat );
+     List<ChatPerdu> chercherChatPerduCouleur();
 
-    public ServiceResponse<ChatTrouve> removeChats(ChatTrouve chat );
+     List<ChatPerdu> chercherChatPerduRace();
 
-    public List<ChatPerdu> chercherChatPerduCouleur();
+     List<ChatPerdu> chercherChatPerduDate();
 
-    public List<ChatPerdu> chercherChatPerduRace();
+    //************************  CHATS TROUVES    *****************************************
 
-    public List<ChatPerdu> chercherChatPerduDate();
+     List<ChatTrouve> afficherChatTrouve();
 
-    public List<ChatTrouve> chercherChatTrouveCouleur();
+     ServiceResponse<ChatTrouve> addChatT(ChatTrouve chat );
 
-    public List<ChatTrouve> chercherChatTrouveRace();
+     ServiceResponse<ChatTrouve> removeChats(ChatTrouve chat );
 
-    public List<ChatTrouve> chercherChatTrouveDate();
+     List<ChatTrouve> chercherChatTrouveCouleur();
+
+     List<ChatTrouve> chercherChatTrouveRace();
+
+     List<ChatTrouve> chercherChatTrouveDate();
+
+    ChatTrouve afficherChatTById(long id);
 }

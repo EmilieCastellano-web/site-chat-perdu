@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HelpCat</title>
+    <link rel="stylesheet" th:href="@{/css/general.css}" />
+    <link rel="stylesheet" th:href="@{/css/demo-table.css}" />
+</head>
+<body>
+  <h1>Listes des chats perdus</h1>
+
+
+
+  <header>
+      <div th:replace="~{fragments/fragment-entete :: entete}"></div>
+  </header>
+  <main>
+
+      <table>
+          <div th:if="${error}" style="color: red;">
+              <p th:text="${error}"></p>
+          </div>
+          <div th:if="${message}" style="color: green;">
+              <p th:text="${message}"></p>
+          </div>
+          <a th:href="@{/chats/perdus/ajouter}">Nouveau Chat Perdu</a>
+          <thead>
+          <tr>
+              <th>Nom</th>
+              <th>Age</th>
+              <th>Race</th>
+              <th>Genre</th>
+              <th>Date</th>
+              <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="p : ${chatsPerdus}">
+              <td th:text="${p.nom}"></td>
+              <td th:text="${p.age}"></td>
+              <td th:text="${p.race}"></td>
+              <td th:text="${p.gender}"></td>
+              <td th:text="${p.datePerdu}"></td>
+              <td><a th:href="@{/chats/perdus/detail(id=${p.id})}">Afficher</a>
+              </td>
+          </tr>
+          </tbody>
+      </table>
+
+  </main>
+
+  <footer>
+      <div th:replace="~{fragments/fragment-footer :: footer}"></div>
+  </footer>
+</body>
+</html>

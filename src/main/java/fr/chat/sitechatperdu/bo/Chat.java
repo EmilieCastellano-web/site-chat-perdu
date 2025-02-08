@@ -8,20 +8,20 @@ abstract class Chat {
     Race race;
 
 
-    public Chat(String nom, String couleur) {
-        this.nom = nom;
-        this.couleur = couleur;
+    public Chat() {
     }
 
+
     public Chat(String nom, Race race, String couleur) {
-       this(nom, couleur);
+        this.nom = nom;
+        this.couleur = couleur;
         this.race = race;
 
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Chat ");
+        StringBuilder sb = new StringBuilder("Chat ");
         sb.append("nom : '").append(nom).append('\'');
         sb.append(", race : '").append(race).append('\'');
         sb.append(", couleur : '").append(couleur).append('\'');

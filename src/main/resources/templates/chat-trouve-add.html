@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HelpCat</title>
+</head>
+<body>
+
+<h2>Ajouter un chat Trouve</h2>
+
+<form th:action="@{/chats/trouves/ajouter}" th:object="${chatTrouve}" method="post">
+
+  <label for="nom">Nom :</label>
+  <input type="text" id="nom" name="nom" th:field="*{nom}" required>
+  <br>
+
+  <label for="race">Race :</label>
+  <select id="race" name="race" th:field="*{race}">
+    <option th:each="r : ${T(fr.chat.sitechatperdu.bo.Race).values()}"
+            th:value="${r}" th:text="${r}">
+    </option>
+  </select>
+  <br>
+
+  <label for="couleur">Couleur :</label>
+  <input type="text" id="couleur" name="couleur" th:field="*{couleur}" required>
+  <br>
+
+  <label for="age">Âge :</label>
+  <input type="number" id="age" name="age" th:field="*{age}" min="0" required>
+  <br>
+
+  <label for="gender">Genre :</label>
+  <select id="gender" name="gender" th:field="*{gender}">
+    <option value="Mâle">Mâle</option>
+    <option value="Femelle">Femelle</option>
+  </select>
+  <br>
+
+  <label for="description">Description :</label>
+  <textarea id="description" name="description" th:field="*{description}" required></textarea>
+  <br>
+
+  <label for="dateTrouve">Date Trouvé :</label>
+  <input type="date" id="dateTrouve" name="dateTrouve" th:field="*{dateTrouve}" required>
+  <br>
+
+  <button type="submit">Enregistrer</button>
+</form>
+
+</body>
+</html>

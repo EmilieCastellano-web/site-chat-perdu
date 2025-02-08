@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HelpCat</title>
+</head>
+<body>
+
+<h2>Ajouter un chat perdu</h2>
+
+<form th:action="@{/chats/perdus/ajouter}" th:object="${chatPerdu}" method="post">
+
+  <label for="nom">Nom :</label>
+  <input type="text" id="nom" name="nom" th:field="*{nom}" required>
+  <br>
+
+  <label for="race">Race :</label>
+  <select id="race" name="race" th:field="*{race}">
+    <option value="MAINE_COON">Maine Coon</option>
+    <option value="SACRE_DE_BIRMANIE">Sacré de Birmanie</option>
+    <option value="BENGAL">Bengal</option>
+    <option value="BRITISH_SHORTHAIR">British shorthair</option>
+    <option value="RADGOLL">Radgoll</option>
+    <option value="PERSAN">Persan</option>
+    <option value="CHARTREUX">Chartreux</option>
+    <option value="SIBERIEN">Sibérien</option>
+    <option value="NORVEGIEN">Norvégien</option>
+    <option value="SPHYNX">Sphynx</option>
+    <option value="SANS_RACE">Sans race</option>
+  </select>
+  <br>
+
+  <label for="couleur">Couleur :</label>
+  <input type="text" id="couleur" name="couleur" th:field="*{couleur}" required>
+  <br>
+
+  <label for="age">Âge :</label>
+  <input type="number" id="age" name="age" th:field="*{age}" min="0" required>
+  <br>
+
+  <label for="gender">Genre :</label>
+  <select id="gender" name="gender" th:field="*{gender}">
+    <option value="Mâle">Mâle</option>
+    <option value="Femelle">Femelle</option>
+  </select>
+  <br>
+
+  <label for="description">Description :</label>
+  <textarea id="description" name="description" th:field="*{description}" required></textarea>
+  <br>
+
+  <label for="datePerdu">Date de perte :</label>
+  <input type="date" id="datePerdu" name="datePerdu" th:field="*{datePerdu}" required>
+  <br>
+
+  <button type="submit">Enregistrer</button>
+</form>
+
+</body>
+</html>

@@ -10,29 +10,22 @@ public class ChatTrouve extends Chat {
     private String description;
     private LocalDate dateTrouve;
     private long id;
-    private long count = 0;
-    private static long globalCount = 0;
+    private static long globalCount = 1;
 
     /**
      * Constructeur pour instancier un chat trouvé
-     * @param nom
-     * @param race
-     * @param couleur
-     * @param dateTrouve
-     * @param description
-     * @param gender
-     * @param age
      */
     public ChatTrouve(String nom, Race race, String couleur, LocalDate dateTrouve, String description, String gender, int age) {
         super(nom, race, couleur);
         this.id = globalCount++;
-        this.count = globalCount;
         this.dateTrouve = dateTrouve;
         this.description = description;
         this.gender = gender;
         this.age = age;
     }
 
+    public ChatTrouve() {
+    }
 
     /**
      * Méthode pour définir l'affichage
@@ -40,7 +33,7 @@ public class ChatTrouve extends Chat {
      */
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Chat Trouve : ");
+         StringBuilder sb = new StringBuilder("Chat Trouve : ");
         sb.append("age : ").append(age);
         sb.append(", gender : '").append(gender).append('\'');
         sb.append(", description : '").append(description).append('\'');

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HelpCat</title>
+</head>
+<body>
+<h1>Listes des chats trouvés</h1>
+
+<link rel="stylesheet" th:href="@{/css/general.css}" />
+<link rel="stylesheet" th:href="@{/css/demo-table.css}" />
+
+<header>
+  <div th:replace="~{fragments/fragment-entete :: entete}"></div>
+</header>
+<main>
+
+  <table>
+    <div th:if="${error}" style="color: red;">
+      <p th:text="${error}"></p>
+    </div>
+    <div th:if="${message}" style="color: green;">
+      <p th:text="${message}"></p>
+    </div>
+    <a th:href="@{/chats/trouves/ajouter}">Nouveau Chat Trouvé</a>
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Age</th>
+      <th>Race</th>
+      <th>Genre</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${chatsTrouves}">
+      <td th:text="${t.nom}"></td>
+      <td th:text="${t.age}"></td>
+      <td th:text="${t.race}"></td>
+      <td th:text="${t.gender}"></td>
+      <td th:text="${t.dateTrouve}"></td>
+      <td><a th:href="@{/chats/trouves/detail(id=${t.id})}">Afficher</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer>
+  <div th:replace="~{fragments/fragment-footer :: footer}"></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelpCat</title>
+  <link rel="stylesheet" th:href="@{/css/general.css}">
+  <link rel="stylesheet" th:href="@{/css/demo-form.css}">
+</head>
+<body>
+
+
+
+
+<header>
+  <div th:replace="~{fragments/fragment-entete :: entete}"></div>
+</header>
+<main>
+
+  <form action="">
+    <h1>Détail Chat</h1>
+    <ul class="flex-outer">
+      <li>
+        <label for="idNom">Nom : </label>
+          <input id=idNom type="text" name="nom" th:value="${chatPerdu.nom}" />
+      </li>
+
+      <li>
+        <label for="idAge">Age : </label>
+        <input id=idAge type="text" name="annee" th:value="${chatPerdu.age}" />
+      </li>
+
+      <li>
+        <label for="idRace">Race : </label>
+        <input id=idRace type="text" name="race" th:value="${chatPerdu.race}" />
+      </li>
+
+      <li>
+        <label for="idGenre">Genre : </label>
+        <input id=idGenre type="text" name="gender" th:value="${chatPerdu.gender}" />
+      </li>
+
+      <li>
+        <label for="idDate">Date : </label>
+        <input id=idDate type="text" name="datePerdu" th:value="${chatPerdu.datePerdu}" /></li>
+    </ul>
+  </form>
+</main>
+
+<footer>
+  <div th:replace="~{fragments/fragment-footer :: footer}"></div>
+</footer>
+</body>
+</html>

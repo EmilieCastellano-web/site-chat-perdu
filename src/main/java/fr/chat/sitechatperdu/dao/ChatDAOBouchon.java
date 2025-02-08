@@ -8,14 +8,13 @@ import fr.chat.sitechatperdu.bo.Race;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class ChatDAO {
+public class ChatDAOBouchon {
 
-    private List<ChatPerdu> listChatsPerdus = new ArrayList<>();
-    private List<ChatTrouve> listChatsTrouves = new ArrayList<>();
+    private final List<ChatPerdu> listChatsPerdus = new ArrayList<>();
+    private final List<ChatTrouve> listChatsTrouves = new ArrayList<>();
 
-    public ChatDAO() {
+    public ChatDAOBouchon() {
 
         listChatsPerdus.add(new ChatPerdu( "Simba",
                 Race.BENGAL,
@@ -84,7 +83,6 @@ public class ChatDAO {
 
     /**
      * Méthode permettant de retouvé un chat perdu avec son ID
-     * @param id
      * @return ChatPerdu
      */
     public ChatPerdu selectPerduById(long id) {
@@ -93,7 +91,6 @@ public class ChatDAO {
 
     /**
      * Méthode permettant de retouvé un chat trouve avec son ID
-     * @param id
      * @return ChatTrouve
      */
     public ChatTrouve selectTrouveById(long id) {
@@ -102,7 +99,6 @@ public class ChatDAO {
 
     /**
      * Ajoute un chat trouvé à la list des chats trouvés
-     * @param chat
      * @return chat
      */
     public ChatTrouve addChat(ChatTrouve chat) {
@@ -112,31 +108,25 @@ public class ChatDAO {
 
     /**
      * Ajoute un chat perdu à la list des chats perdus
-     * @param chat
-     * @return chat
      */
-    public ChatPerdu addChat(ChatPerdu chat) {
+    public void addChat(ChatPerdu chat) {
         listChatsPerdus.add(chat);
-        return chat;
     }
 
     /**
      * Supprimer un chat Perdus avec l'ID associé
-     * @param id
-     * @return boolean
      */
-    public boolean removeChatsPerdus(long id) {
-        return listChatsPerdus.removeIf(p -> p.getId() == id);
+    public void removeChatsPerdus(long id) {
+        listChatsPerdus.removeIf(p -> p.getId() == id);
     }
 
 
     /**
      * Supprimer un chat Trouvé avec l'ID associé
-      * @param id
-     * @return boolean
+     *
      */
-    public boolean removeChatsTrouve(long id) {
-        return listChatsTrouves.removeIf(p -> p.getId() == id);
+    public void removeChatsTrouve(long id) {
+        listChatsTrouves.removeIf(p -> p.getId() == id);
     }
 }
 

@@ -7,9 +7,44 @@ public class Users {
     private String email;
     private String password;
     private String telephone;
+    private long id;
+    private String adresse;
+    private static long globalCount = 1;
 
     ChatPerdu chatPerdu;
     ChatTrouve chatTrouve;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public ChatPerdu getChatPerdu() {
+        return chatPerdu;
+    }
+
+    public void setChatPerdu(ChatPerdu chatPerdu) {
+        this.chatPerdu = chatPerdu;
+    }
+
+    public ChatTrouve getChatTrouve() {
+        return chatTrouve;
+    }
+
+    public void setChatTrouve(ChatTrouve chatTrouve) {
+        this.chatTrouve = chatTrouve;
+    }
 
     /**
      * Constructeur qui permet d'instancier un utilisateur
@@ -18,13 +53,17 @@ public class Users {
      * @param email
      * @param password
      * @param telephone
+     * @param adresse
+     *
      */
-    public Users(String nom, String prenom, String email, String password, String telephone) {
+    public Users(String nom, String prenom, String email, String password, String telephone, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.password = password;
         this.telephone = telephone;
+        this.adresse = adresse;
+        this.id = globalCount++;
     }
 
 

@@ -10,24 +10,17 @@ public class ChatPerdu extends Chat{
     private String description;
     private LocalDate datePerdu;
     private long id;
-    private static long globalCount = 0;
-    private long count = 0;
+    private static long globalCount = 1;
 
+    public ChatPerdu() {
+    }
 
     /**
      * Constructeur pour instancier un chat perdus
-     * @param nom
-     * @param race
-     * @param couleur
-     * @param age
-     * @param gender
-     * @param description
-     * @param datePerdu
      */
     public ChatPerdu(String nom, Race race, String couleur, int age, String gender, String description, LocalDate datePerdu) {
         super(nom, race, couleur);
         this.id = globalCount++;
-        this.count = globalCount;
         this.age = age;
         this.gender = gender;
         this.description = description;
@@ -38,11 +31,11 @@ public class ChatPerdu extends Chat{
 
     /**
      * Méthode pour définir l'affichage
-     * @return
+     * @return String
      */
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Chat Perdu : ");
+        StringBuilder sb = new StringBuilder("Chat Perdu : ");
         sb.append("age : ").append(age);
         sb.append(", gender : '").append(gender).append('\'');
         sb.append(", description : '").append(description).append('\'');

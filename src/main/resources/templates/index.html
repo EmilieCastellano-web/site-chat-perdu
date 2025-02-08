@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>HelpCat</title>
+    <link rel="stylesheet" th:href="@{/css/general.css}" />
+    <link rel="stylesheet" th:href="@{/css/demo-table.css}" />
 </head>
 <body>
-<h1>Test affichage</h1>
+<h1>Bienvenue sur HelpCat</h1>
+<header>
+    <div th:replace="~{fragments/fragment-entete :: entete}"></div>
+</header>
+<main>
 
-<a href="/affichage?choix=chat" >Affichage d'un chat</a>
+
+
+</main>
+
+<footer>
+    <div th:replace="~{fragments/fragment-footer :: footer}"></div>
+</footer>
 </body>
 </html>
